@@ -2,7 +2,7 @@ import { createAssociatedTokenAccountIdempotentInstruction, createSyncNativeInst
 import { ComputeBudgetProgram, Connection, Keypair, sendAndConfirmTransaction, SystemProgram, Transaction } from "@solana/web3.js";
 import bs58 from 'bs58'
 import { PRIVATE_KEY, RPC_ENDPOINT, solanaConnection } from "../constants";
-import { mainMenuWaiting } from "../..";
+import { mainMenuWaiting } from "..";
 import { readSettings } from ".";
 
 /**

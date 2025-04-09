@@ -1,13 +1,12 @@
 import { LAMPORTS_PER_SOL, PublicKey } from "@solana/web3.js"
 import { solanaConnection } from "../constants"
-import { mainKp, swap } from "./buy"
+import { buyandsell, mainKp } from "./buy"
 import { logger, readSettings } from "../utils"
-import { mainMenuWaiting } from "../.."
 import { PumpAmmSdk } from "@pump-fun/pump-swap-sdk"
-import { getAccount, getAssociatedTokenAddress } from "@solana/spl-token"
+import { getAssociatedTokenAddress } from "@solana/spl-token"
 import { BN } from "bn.js"
 
-export const sell_token = async () => {
+export const totalSell = async () => {
     const pumpSwap = new PumpAmmSdk(solanaConnection);
     const solBalance = (await solanaConnection.getBalance(mainKp.publicKey)) / LAMPORTS_PER_SOL
 
@@ -33,6 +32,4 @@ export const sell_token = async () => {
     logger.info(`Token amount: ${tokenAmount}`)
 
     await buyandsell(pumpSwap, POOL_ID, TOKEN_CA, new BN(tokenAmount), slippage, mainKp, "quoteToBase");
-
-    mainMenuWaiting()
 }

@@ -4,14 +4,14 @@ import { HIGHER_MC_INTERVAL, HIGHER_TP_INTERVAL, LOWER_MC_INTERVAL, LOWER_TP_INT
 import base58 from "bs58";
 import { logger, wrapSol } from "../utils";
 import { createAssociatedTokenAccountIdempotentInstruction, createSyncNativeInstruction, getAccount, getAssociatedTokenAddress, getOrCreateAssociatedTokenAccount, NATIVE_MINT } from "@solana/spl-token";
-import { mainMenuWaiting } from "../..";
+import { mainMenuWaiting } from "..";
 import { PumpAmmSdk } from "@pump-fun/pump-swap-sdk";
 import { Direction } from "../types"; // Ensure Direction is imported as an enum
 import BN from "bn.js";
 
 export const mainKp = Keypair.fromSecretKey(base58.decode(PRIVATE_KEY!))
 
-export const buy_monitor_autosell = async () => {
+export const autoBuy = async () => {
     const pumpSwap = new PumpAmmSdk(solanaConnection);
     const data = readSettings();
     const BUY_AMOUNT = Number(data.amount); // Convert to lamports

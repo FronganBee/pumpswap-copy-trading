@@ -1,8 +1,8 @@
 import { PublicKey } from "@solana/web3.js";
-import { main_menu_display, rl, screen_clear, settings_display } from "./src/menu";
-import { readSettings, saveSettingsToFile, sleep } from "./src/utils/utils";
-import { buy_monitor_autosell, mainKp } from "./src/layout/buy";
-import { sell_token } from "./src/layout/sell";
+import { main_menu_display, rl, screen_clear } from "./cli";
+import { readSettings, saveSettingsToFile, sleep } from "./utils/utils";
+import { autoBuy } from "./layout/buy";
+import { totalSell } from "./layout/sell";
 
 export const init = () => {
     screen_clear();
@@ -14,7 +14,7 @@ export const init = () => {
         let choice = parseInt(answer);
         switch (choice) {
             case 1:
-                show_settings();
+                checkSettings();
                 break;
             case 2:
                 autoBuy();
@@ -38,13 +38,6 @@ const checkSettings = async () => {
 
     console.log("Current settings of Pumpswap Trading bot...")
     console.log(data)
-    mainMenuWaiting()
-}
-
-const settingsWaiting = () => {
-    rl.question('\x1b[32mpress Enter key to continue\x1b[0m', (answer: string) => {
-        settings()
-    })
 }
 
 init()

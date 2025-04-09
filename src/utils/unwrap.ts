@@ -7,7 +7,7 @@ import {
 } from "@solana/spl-token";
 import base58 from "bs58";
 import { PRIVATE_KEY, RPC_ENDPOINT } from "../constants";
-import { mainMenuWaiting } from "../..";
+import { mainMenuWaiting } from "..";
 
 // Solana Connection and Keypair
 const connection = new Connection(RPC_ENDPOINT);
