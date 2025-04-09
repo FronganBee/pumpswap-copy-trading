@@ -1,9 +1,6 @@
 import { createAssociatedTokenAccountIdempotentInstruction, createSyncNativeInstruction, getAssociatedTokenAddress, NATIVE_MINT, TOKEN_PROGRAM_ID } from "@solana/spl-token";
-import { ComputeBudgetProgram, Connection, Keypair, sendAndConfirmTransaction, SystemProgram, Transaction } from "@solana/web3.js";
-import bs58 from 'bs58'
-import { PRIVATE_KEY, RPC_ENDPOINT, solanaConnection } from "../constants";
-import { mainMenuWaiting } from "..";
-import { readSettings } from ".";
+import { ComputeBudgetProgram, Keypair, sendAndConfirmTransaction, SystemProgram, Transaction } from "@solana/web3.js";
+import { solanaConnection } from "../constants";
 
 /**
  * Wraps the given amount of SOL into WSOL.
@@ -16,14 +13,6 @@ const sleep = async (ms: number) => {
 }
 
 export const wrapSol = async (mainKp: Keypair, amount: number) => {
-
-    // rl.question("\t[Amount] - Number(sol): ", async (answer: string) => {
-    // if (answer == 'c') {
-    //     mainMenuWaiting()
-    //     return
-    // }
-    // let amount = parseFloat(answer);
-
     console.log(`It is wrapping ${amount}Sol to Wsol now.`)
 
     const maxRetries = 20
@@ -63,7 +52,6 @@ export const wrapSol = async (mainKp: Keypair, amount: number) => {
             const sig = await sendAndConfirmTransaction(solanaConnection, tx, [mainKp], { skipPreflight: true, commitment: "confirmed" });
             if (sig) {
                 console.log(`Wrapped SOL transaction: https://solscan.io/tx/${sig}`);
-                mainMenuWaiting()
                 return
             }
 
@@ -73,9 +61,4 @@ export const wrapSol = async (mainKp: Keypair, amount: number) => {
             attempt++
         }
     } while (attempt < maxRetries)
-
-    mainMenuWaiting()
-
-    // })
-
 };
