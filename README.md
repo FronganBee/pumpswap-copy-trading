@@ -21,24 +21,15 @@ RPC_WEBSOCKET_ENDPOINT=      # RPC WebSocket endpoint for Solana
 PUMP_SWAP_PROGRAM_ID         # Pumpswap program ID
 
 ####### BUY AND SELL SETTING #######
-LOWER_MC_INTERVAL= # percent
-HIGHER_MC_INTERVAL= # percent
-LOWER_TP_INTERVAL= # percent
-HIGHER_TP_INTERVAL= # percent
+LOWER_MC_INTERVAL=              # percent
+HIGHER_MC_INTERVAL=             # percent
+LOWER_TP_INTERVAL=              # percent
+HIGHER_TP_INTERVAL=             # percent
 
 ########## FOR SELL MODE ##########
 SELL_TIMER=                  # Sell timer
 STOP_LOSS=                   # Value for stop loss
 
-#### TOKEN PAIR SETTING ####
-TOKEN_MINT=6VbEGuqwhjdgV9NxhMhvRkrFqXVNk53CvD7hK3C3yQS9  # Token mint address
-
-JITO_KEY=                    # Jito key
-JITO_FEE=                    # Jito fee
-BLOCKENGINE_URL=ny.mainnet.block-engine.jito.wtf  # Block engine URL
-
-###### GENERAL SETTING ######
-LOG_LEVEL=info               # Logging level (info, debug, error)
 ```
 
 ## Usage
