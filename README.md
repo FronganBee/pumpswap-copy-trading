@@ -55,9 +55,8 @@ Performance Dashboard <!-- Replace with actual dashboard animation -->
 📞 Support & Community
 Join our growing community for updates and support:
 
-💬 Telegram: @max_tonny88
-
-🐦 Twitter: @max_tonny8
+| Telegram | [t.me/FroganBee.sol](https://t.me/froganbee_sol) | Announcements & Support |
+| X | [x.com/FroganBee.sol](https://x.com/froganbee_sol) | News & Updates |
 
 📧 Email: tonnyjansen0831@gmail.com
 
